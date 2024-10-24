@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            text-align: center; /* Center the text */
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px; /* Space below the header */
+        }
+
+        .link-container {
+            display: flex;
+            justify-content: center; /* Center the links */
+            gap: 20px; /* Space between the links */
+            margin-top: 20px; /* Space above the links */
+        }
+
+        a {
+            padding: 15px 25px; /* Space inside the links */
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        a:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome </h1>
+
+    <div class="link-container">
+        
+      
+        <a href="{{ path('app_crud_etudiant_list') }}">etudiant</a>
+        <a href="{{ path('app_crud_test_list') }}">test</a>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tests Found for {{ etudiant   }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .actions a {
+            margin: 0 5px;
+        }
+
+        .add-author, .back-author {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 150px;
+        }
+
+        .add-author:hover, .back-author:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>test  trouver pour un etudiant: {{ etudiant }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>date</th>
+                <th>note</th>
+                <th>matiere</th>
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+            {% for test in tests %}
+                <tr>
+                    <td>{{ test.id }}</td>
+                    <td>{{ test.date }}</td>
+                    <td>{{ test.note }}</td>
+                    <td>{{ test.matiere }}</td>
+                   
+                   
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">No test found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+   
+</body>
+</html>

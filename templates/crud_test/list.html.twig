@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>test List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .actions a {
+            margin: 0 5px;
+        }
+
+        .add-library {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 150px;
+        }
+
+        .add-library:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Libraries List</h1>
+<!-- Search Form -->
+    <form method="GET" action="{{ path('app_crud_test_search_by_etudiant') }}">
+        <label for="test">Search by test Name:</label>
+        <input type="text" id="test" name="test" required>
+        <button type="submit">Search</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                 <th>note</th>
+                  <th>date</th>
+                   <th>matiere</th>
+               
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for test in list %}
+                <tr>
+                    <td>{{ test.id }}</td>
+                    <td>{{ test.note }}</td>
+                    <td>{{ test.date|date('Y-m-d') }}</td>
+                    <td>{{ test.matiere }}</td>
+                    
+                    <td class="actions">
+                        <a href="{{ path('app_crud_test_update', {'id': test.id}) }}">Edit</a> | 
+                        <a href="{{ path('app_crud_test_delete', {'id': test.id}) }}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">No test found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crud_test_new') }}" class="add-library">Add New test</a>
+</body>
+</html>
